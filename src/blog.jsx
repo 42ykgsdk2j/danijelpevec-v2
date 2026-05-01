@@ -9,6 +9,9 @@ function BlogSection() {
     return d.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
   };
 
+  const postUrl = (slug) => lang === "hr" ? `blog/${slug}-hr.html` : `blog/${slug}.html`;
+  const indexUrl = lang === "hr" ? "blog-hr.html" : "blog.html";
+
   return (
     <section className="blog-section section-pad" id="blog">
       <div className="container">
@@ -23,7 +26,7 @@ function BlogSection() {
             <a
               className="blog-card"
               key={p.slug}
-              href={`blog/${p.slug}.html`}
+              href={postUrl(p.slug)}
             >
               <div className="blog-card-meta">
                 <span className="blog-card-cat">{p.category[lang]}</span>
@@ -41,7 +44,7 @@ function BlogSection() {
         </div>
 
         <div className="blog-section-cta">
-          <a href="blog.html" className="btn-link">
+          <a href={indexUrl} className="btn-link">
             {t.blog.viewAll} <Icon.Arrow size={12} />
           </a>
         </div>

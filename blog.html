@@ -8,6 +8,9 @@
 <meta name="keywords" content="family business advisory, succession planning, generational wealth, family business governance, family constitution, next generation leadership, family business legacy" />
 <meta name="author" content="Danijel Pevec" />
 <link rel="canonical" href="https://www.danijelpevec.com/blog.html" />
+<link rel="alternate" hreflang="en" href="https://www.danijelpevec.com/blog.html" />
+<link rel="alternate" hreflang="hr" href="https://www.danijelpevec.com/blog-hr.html" />
+<link rel="alternate" hreflang="x-default" href="https://www.danijelpevec.com/blog.html" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Insights on Family Business, Succession & Legacy" />
@@ -25,10 +28,10 @@
 <link rel="stylesheet" href="styles.css" />
 
 <script>
-  // Apply saved theme before paint to avoid FOUC
   (function() {
     var t = localStorage.getItem("dp_theme") || "dark";
     document.documentElement.setAttribute("data-theme", t);
+    localStorage.setItem("dp_lang", "en");
   })();
 </script>
 
@@ -66,6 +69,10 @@
       <a href="index.html#about">About</a>
     </div>
     <div class="static-nav-actions">
+      <div class="static-lang-toggle" role="group" aria-label="Language">
+        <a href="blog.html" class="active" onclick="localStorage.setItem('dp_lang','en')">EN</a>
+        <a href="blog-hr.html" onclick="localStorage.setItem('dp_lang','hr')">HR</a>
+      </div>
       <button class="static-theme-toggle" onclick="(function(){var c=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',c);localStorage.setItem('dp_theme',c);document.getElementById('theme-icon').textContent=c==='dark'?'☾':'☼';})()" aria-label="Toggle theme">
         <span id="theme-icon">☾</span>
       </button>
