@@ -17,16 +17,16 @@ function BlogSection() {
   return (
     <section className="blog-section section-pad" id="blog">
       <div className="container">
-        <div className="section-head" style={{ maxWidth: "780px", marginBottom: 64 }}>
+        <div className="section-head reveal" style={{ maxWidth: "780px", marginBottom: 64 }}>
           <div className="eyebrow">{t.blog.eyebrow}</div>
           <h2>{t.blog.title} <span className="accent italic">{t.blog.titleAccent}</span></h2>
           <p className="lead">{t.blog.lead}</p>
         </div>
 
-        <div className="blog-grid">
+        <div className="blog-grid reveal-stagger">
           {latest.map((p) => (
             <a
-              className="blog-card"
+              className="blog-card reveal"
               key={p.slug}
               href={postUrl(p.slug)}
             >
@@ -45,7 +45,7 @@ function BlogSection() {
           ))}
         </div>
 
-        <div className="blog-section-cta">
+        <div className="blog-section-cta reveal">
           <a href={indexUrl} className="btn-link">
             {t.blog.viewAll} <Icon.Arrow size={12} />
           </a>

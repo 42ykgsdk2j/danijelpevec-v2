@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="../styles.css" />
 
 <script>
-  (function() { var t = localStorage.getItem("dp_theme") || "dark"; document.documentElement.setAttribute("data-theme", t); localStorage.setItem("dp_lang", "en"); })();
+  (function() { var t = localStorage.getItem("dp_theme") || "dark"; document.documentElement.setAttribute("data-theme", t); document.documentElement.classList.add('js-scroll-ready'); localStorage.setItem("dp_lang", "en"); })();
 </script>
 
 <script type="application/ld+json">
@@ -117,7 +117,7 @@
 
       <p>Founders sometimes hear these statistics and assume the problem is technical. Better tax planning. Cleaner trusts. Smarter investment management. The reality is the opposite: families that lose generational wealth almost always have competent advisors. What they lack is something none of those advisors are paid to provide.</p>
 
-      <h2>What generational wealth transition actually involves</h2>
+      <h2 class="reveal">What generational wealth transition actually involves</h2>
 
       <p>A generational wealth transition transfers four things, not one:</p>
 
@@ -130,7 +130,7 @@
 
       <p>Estate planning addresses the first. Tax planning protects the first against erosion. Almost every family arrives at transition with the first sorted. Almost no family arrives with all four.</p>
 
-      <h2>The real reasons wealth disappears</h2>
+      <h2 class="reveal">The real reasons wealth disappears</h2>
 
       <p>Decades of research into intergenerational wealth attrition — most notably the long-running studies by Roy Williams and Vic Preisser — point to the same handful of failure modes. Tax accounts for less than 5% of wealth losses across generations. The rest is structural and human.</p>
 
@@ -150,9 +150,9 @@
 
       <p>Without governance, every decision becomes a family argument. Disagreements that should be resolved through process get resolved through dominant personality, then resentment, then exit. By the third generation, the family is no longer one family — it is several factions sharing a balance sheet.</p>
 
-      <div class="pull-quote">Tax accounts for less than 5% of generational wealth loss. The rest is structural and human.</div>
+      <div class="pull-quote reveal">Tax accounts for less than 5% of generational wealth loss. The rest is structural and human.</div>
 
-      <h2>What families that succeed do differently</h2>
+      <h2 class="reveal">What families that succeed do differently</h2>
 
       <p>The families whose wealth lasts share a small number of practices. None are exotic. Most are uncomfortable to start. All compound across decades.</p>
 
@@ -172,7 +172,7 @@
 
       <p>The most thoughtful families distinguish between heirs and stewards. An heir receives. A steward holds something on behalf of the next generation. The shift in language is not cosmetic — it changes how the next generation sees itself, and how it behaves.</p>
 
-      <h2>Where most families go wrong in wealth transition planning</h2>
+      <h2 class="reveal">Where most families go wrong in wealth transition planning</h2>
 
       <p>The common mistakes follow a pattern:</p>
 
@@ -183,12 +183,12 @@
         <li><strong>Building structure without purpose.</strong> A trust without a why becomes a vehicle for argument.</li>
       </ul>
 
-      <h2>The founder's role in wealth transition</h2>
+      <h2 class="reveal">The founder's role in wealth transition</h2>
 
       <p>The founder's role is not to control the future of the wealth — that is impossible — but to put in place the structures, conversations and preparation that give the next generation a fair chance. The work is unglamorous. It rarely produces a single moment of completion. And it is, by some distance, the highest-leverage thing a founder can do with the years they have left.</p>
 
-      <section class="article-faq">
-        <h2>Frequently asked questions</h2>
+      <section class="article-faq reveal">
+        <h2 class="reveal">Frequently asked questions</h2>
         <details><summary>What is generational wealth transition?</summary>
           <p>Generational wealth transition is the process of transferring not only assets but the structure, knowledge and shared purpose required for those assets to continue producing value across generations. It is broader than estate planning and broader than tax planning.</p>
         </details>
@@ -203,7 +203,7 @@
         </details>
       </section>
 
-      <section class="article-cta">
+      <section class="article-cta reveal">
         <h3>These conversations don't happen on a page.</h3>
         <p>If anything here speaks to your situation, the next step is a private conversation.</p>
         <a class="btn btn-primary" href="../index.html#top">Request a private conversation →</a>
@@ -214,20 +214,20 @@
   <section class="article-related">
     <div class="container">
       <h2>Continue reading</h2>
-      <div class="blog-grid">
-        <a class="blog-card" href="family-business-succession-planning.html">
+      <div class="blog-grid reveal-stagger">
+        <a class="blog-card reveal" href="family-business-succession-planning.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Succession</span><span class="blog-card-dot">·</span><span class="blog-card-time">9 min read</span></div>
           <h3 class="blog-card-title">Family Business Succession Planning: A Founder's Practical Roadmap</h3>
           <p class="blog-card-excerpt">Succession is not an event. It is a five-stage process that begins long before the founder steps back.</p>
           <div class="blog-card-footer"><span class="blog-card-date">22 Apr 2026</span><span class="blog-card-arrow">→</span></div>
         </a>
-        <a class="blog-card" href="family-constitution-governance.html">
+        <a class="blog-card reveal" href="family-constitution-governance.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Governance</span><span class="blog-card-dot">·</span><span class="blog-card-time">9 min read</span></div>
           <h3 class="blog-card-title">The Family Constitution: Building Governance That Outlasts You</h3>
           <p class="blog-card-excerpt">A family constitution is not a legal document. It is the written agreement that holds a family together.</p>
           <div class="blog-card-footer"><span class="blog-card-date">1 Apr 2026</span><span class="blog-card-arrow">→</span></div>
         </a>
-        <a class="blog-card" href="building-legacy-beyond-founders.html">
+        <a class="blog-card reveal" href="building-legacy-beyond-founders.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Legacy</span><span class="blog-card-dot">·</span><span class="blog-card-time">8 min read</span></div>
           <h3 class="blog-card-title">Building a Legacy: Long-Term Wealth Beyond the Founder Generation</h3>
           <p class="blog-card-excerpt">Legacy is not what you leave behind. It is what continues to function and create value when you are no longer in the room.</p>
@@ -256,5 +256,6 @@
 
 <script>(function(){var c=document.documentElement.getAttribute('data-theme');var s=document.getElementById('theme-sun');var m=document.getElementById('theme-moon');if(s&&m){s.style.display=c==='light'?'inline-block':'none';m.style.display=c==='dark'?'inline-block':'none';}})();</script>
 <script src="../src/btn-shine.js"></script>
+<script src="../src/scroll-reveal.js"></script>
 </body>
 </html>

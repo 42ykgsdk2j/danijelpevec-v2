@@ -35,8 +35,7 @@
 <script>
   (function() {
     var t = localStorage.getItem("dp_theme") || "dark";
-    document.documentElement.setAttribute("data-theme", t);
-    localStorage.setItem("dp_lang", "en");
+    document.documentElement.setAttribute("data-theme", t); document.documentElement.classList.add('js-scroll-ready'); localStorage.setItem("dp_lang", "en");
   })();
 </script>
 
@@ -138,7 +137,7 @@
 
       <p>Family business succession planning is not a single document or a one-off conversation. It is a multi-year process that addresses ownership, leadership, governance and family alignment as four separate but interlocking questions. Done well, it is invisible by the time it concludes. Done poorly, it becomes the most expensive omission a founder ever makes.</p>
 
-      <h2>Why succession planning is the most postponed conversation in family business</h2>
+      <h2 class="reveal">Why succession planning is the most postponed conversation in family business</h2>
 
       <p>Founders postpone succession planning because the conversation feels premature, personal and final. It touches identity. It asks a question the founder is rarely ready to answer: <em>who am I when this is no longer mine to run?</em></p>
 
@@ -146,7 +145,7 @@
 
       <p>The cost of postponement is rarely felt while the founder is healthy and engaged. It is felt afterwards — when leadership, ownership and family expectations all need to be resolved at once, under pressure, often in grief or conflict. A well-built succession plan converts that pressure into a sequence of considered decisions made in calmer years.</p>
 
-      <h2>The five stages of family business succession planning</h2>
+      <h2 class="reveal">The five stages of family business succession planning</h2>
 
       <p>A practical succession roadmap moves through five stages. Each stage answers a different question, and skipping a stage is what most often produces the failures we read about later.</p>
 
@@ -186,9 +185,9 @@
 
       <p>Sensible handovers are sequenced over years. Leadership transitions in stages, with the founder moving from operator to chair to advisor. Ownership transfers gradually, often through structures that allow voting and economic rights to evolve at different speeds. Governance bodies are tested in advance, not at the moment of crisis.</p>
 
-      <div class="pull-quote">A succession plan is not a document. It is a sequence of decisions made early enough to still be reversible.</div>
+      <div class="pull-quote reveal">A succession plan is not a document. It is a sequence of decisions made early enough to still be reversible.</div>
 
-      <h2>Common pitfalls in family business succession planning</h2>
+      <h2 class="reveal">Common pitfalls in family business succession planning</h2>
 
       <p>The most frequent mistakes are not financial. They are human:</p>
 
@@ -199,14 +198,14 @@
         <li><strong>Building a plan without independent perspective.</strong> Family members cannot facilitate their own succession. The role of the advisor is to hold the room when no insider can.</li>
       </ul>
 
-      <h2>When to start family business succession planning</h2>
+      <h2 class="reveal">When to start family business succession planning</h2>
 
       <p>The honest answer is: earlier than feels comfortable. Five to ten years before the founder intends to step back, if a clean succession is the goal. Earlier still if the next generation is already in the business, since their development takes years.</p>
 
       <p>The hardest part is starting. Once the conversation is in the open, it tends to clarify quickly. What founders mistake for resistance is usually relief that the question has finally been raised.</p>
 
-      <section class="article-faq">
-        <h2>Frequently asked questions</h2>
+      <section class="article-faq reveal">
+        <h2 class="reveal">Frequently asked questions</h2>
         <details>
           <summary>When should family business succession planning begin?</summary>
           <p>Five to ten years before the founder intends to step back. Earlier if the next generation is already involved in the business or if the ownership structure is complex. Late starts are possible but expensive — they remove the optionality that makes a clean succession possible.</p>
@@ -225,7 +224,7 @@
         </details>
       </section>
 
-      <section class="article-cta">
+      <section class="article-cta reveal">
         <h3>These conversations don't happen on a page.</h3>
         <p>If anything here speaks to your situation, the next step is a private conversation.</p>
         <a class="btn btn-primary" href="../index.html#top">Request a private conversation →</a>
@@ -236,20 +235,20 @@
   <section class="article-related">
     <div class="container">
       <h2>Continue reading</h2>
-      <div class="blog-grid">
-        <a class="blog-card" href="generational-wealth-transition.html">
+      <div class="blog-grid reveal-stagger">
+        <a class="blog-card reveal" href="generational-wealth-transition.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Wealth Transition</span><span class="blog-card-dot">·</span><span class="blog-card-time">8 min read</span></div>
           <h3 class="blog-card-title">Generational Wealth Transition: Why So Few Families Get It Right</h3>
           <p class="blog-card-excerpt">Most families lose generational wealth within three generations. The reason is rarely tax or markets.</p>
           <div class="blog-card-footer"><span class="blog-card-date">15 Apr 2026</span><span class="blog-card-arrow">→</span></div>
         </a>
-        <a class="blog-card" href="family-business-second-generation.html">
+        <a class="blog-card reveal" href="family-business-second-generation.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Continuity</span><span class="blog-card-dot">·</span><span class="blog-card-time">10 min read</span></div>
           <h3 class="blog-card-title">Why 70% of Family Businesses Don't Survive the Second Generation</h3>
           <p class="blog-card-excerpt">Only three in ten family businesses survive into the second generation. The pattern is consistent — and avoidable.</p>
           <div class="blog-card-footer"><span class="blog-card-date">8 Apr 2026</span><span class="blog-card-arrow">→</span></div>
         </a>
-        <a class="blog-card" href="family-constitution-governance.html">
+        <a class="blog-card reveal" href="family-constitution-governance.html">
           <div class="blog-card-meta"><span class="blog-card-cat">Governance</span><span class="blog-card-dot">·</span><span class="blog-card-time">9 min read</span></div>
           <h3 class="blog-card-title">The Family Constitution: Building Governance That Outlasts You</h3>
           <p class="blog-card-excerpt">A family constitution is not a legal document. It is the written agreement that holds a family together.</p>
@@ -312,5 +311,6 @@
 
 <script>(function(){var c=document.documentElement.getAttribute('data-theme');var s=document.getElementById('theme-sun');var m=document.getElementById('theme-moon');if(s&&m){s.style.display=c==='light'?'inline-block':'none';m.style.display=c==='dark'?'inline-block':'none';}})();</script>
 <script src="../src/btn-shine.js"></script>
+<script src="../src/scroll-reveal.js"></script>
 </body>
 </html>

@@ -1395,16 +1395,44 @@ section { position: relative; }
    Reveal animations
    ============================================ */
 
-.reveal {
+/* Scroll-reveal entrance: scoped to .js-scroll-ready (set on <html> by an
+   inline script before paint) so non-JS / pre-hydration users see content
+   immediately. The IntersectionObserver in app.jsx (React) and
+   src/scroll-reveal.js (static blog pages) adds .in when an element enters
+   the viewport. */
+.js-scroll-ready .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 800ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
 }
-.reveal.in { opacity: 1; transform: translateY(0); }
-.reveal.delay-1 { transition-delay: 80ms; }
-.reveal.delay-2 { transition-delay: 160ms; }
-.reveal.delay-3 { transition-delay: 240ms; }
-.reveal.delay-4 { transition-delay: 320ms; }
+.js-scroll-ready .reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+.js-scroll-ready .reveal.delay-1 { transition-delay: 80ms; }
+.js-scroll-ready .reveal.delay-2 { transition-delay: 160ms; }
+.js-scroll-ready .reveal.delay-3 { transition-delay: 240ms; }
+.js-scroll-ready .reveal.delay-4 { transition-delay: 320ms; }
+
+/* Stagger children: parent gets .reveal-stagger, each child reveals slightly
+   later than its predecessor */
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(2) { transition-delay: 90ms; }
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(3) { transition-delay: 180ms; }
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(4) { transition-delay: 270ms; }
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(5) { transition-delay: 360ms; }
+.js-scroll-ready .reveal-stagger > .reveal:nth-child(n+6) { transition-delay: 450ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-scroll-ready .reveal,
+  .js-scroll-ready .reveal.in,
+  .js-scroll-ready .reveal-stagger > .reveal {
+    opacity: 1; transform: none; transition: none; transition-delay: 0ms;
+  }
+}
 
 /* ============================================
    Responsive

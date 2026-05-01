@@ -32,8 +32,7 @@
 <script>
   (function() {
     var t = localStorage.getItem("dp_theme") || "dark";
-    document.documentElement.setAttribute("data-theme", t);
-    localStorage.setItem("dp_lang", "hr");
+    document.documentElement.setAttribute("data-theme", t); document.documentElement.classList.add('js-scroll-ready'); localStorage.setItem("dp_lang", "hr");
   })();
 </script>
 
@@ -82,7 +81,7 @@
 </nav>
 
 <main>
-  <header class="blog-page-header">
+  <header class="blog-page-header reveal">
     <div class="container">
       <a href="index.html" class="blog-back"><span class="arr">→</span> Povratak na početnu</a>
       <div class="eyebrow">Uvidi</div>
@@ -93,7 +92,7 @@
 
   <section class="blog-page-list">
     <div class="container">
-      <div class="blog-grid" id="blog-grid"></div>
+      <div class="blog-grid reveal-stagger" id="blog-grid"></div>
     </div>
   </section>
 </main>
@@ -183,7 +182,7 @@
   }
 
   var html = POSTS.map(function (p) {
-    return '<a class="blog-card" href="blog/' + p.slug + '-hr.html">' +
+    return '<a class="blog-card reveal" href="blog/' + p.slug + '-hr.html">' +
       '<div class="blog-card-meta"><span class="blog-card-cat">' + p.category + '</span>' +
       '<span class="blog-card-dot">·</span><span class="blog-card-time">' + p.readTime + ' min čitanja</span></div>' +
       '<h2 class="blog-card-title">' + p.title + '</h2>' +
@@ -199,5 +198,6 @@
 
 <script>(function(){var c=document.documentElement.getAttribute('data-theme');var s=document.getElementById('theme-sun');var m=document.getElementById('theme-moon');if(s&&m){s.style.display=c==='light'?'inline-block':'none';m.style.display=c==='dark'?'inline-block':'none';}})();</script>
 <script src="src/btn-shine.js"></script>
+<script src="src/scroll-reveal.js"></script>
 </body>
 </html>
