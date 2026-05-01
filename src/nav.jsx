@@ -67,6 +67,7 @@ function Nav({ theme, setTheme, openModal }) {
     { href: "#who", label: t.nav.who },
     { href: "#work", label: t.nav.work },
     { href: insightsUrl, label: t.nav.blog },
+    { href: "assessment.html", label: t.nav.assessment },
     { href: "#about", label: t.nav.about },
   ];
 
