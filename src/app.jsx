@@ -37,6 +37,7 @@ function App() {
         <ChallengesSection />
         <ApproachSection />
         <WorkSection openModal={openModal} />
+        <BlogSection />
         <AboutSection openModal={openModal} />
         <FinalCta openModal={openModal} />
       </main>

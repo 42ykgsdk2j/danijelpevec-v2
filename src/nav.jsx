@@ -62,10 +62,15 @@ function Nav({ theme, setTheme, openModal }) {
     { href: "#approach", label: t.nav.approach },
     { href: "#who", label: t.nav.who },
     { href: "#work", label: t.nav.work },
+    { href: "#blog", label: t.nav.blog },
     { href: "#about", label: t.nav.about },
   ];
 
   const handleNav = (e, href) => {
+    if (!href.startsWith("#")) {
+      setDrawerOpen(false);
+      return;
+    }
     e.preventDefault();
     setDrawerOpen(false);
     const el = document.querySelector(href);
