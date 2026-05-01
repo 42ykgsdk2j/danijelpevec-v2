@@ -71,31 +71,32 @@
 </head>
 <body>
 
-<nav class="static-nav">
-  <div class="container static-nav-inner">
-    <a class="brand" href="../index.html" aria-label="Danijel Pevec">
-      <span class="brand-mono">DP</span>
-      <span>
-        <span class="brand-name" style="display:block;">Danijel Pevec</span>
-        <span class="brand-tag">Savjetnik za obiteljske tvrtke</span>
-      </span>
+<nav class="nav scrolled">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand" aria-label="Danijel Pevec">
+      <div class="brand-mono">DP</div>
+      <div>
+        <div class="brand-name">Danijel Pevec</div>
+        <div class="brand-tag">Savjetnik za obiteljske tvrtke</div>
+      </div>
     </a>
-    <div class="static-nav-links">
-      <a href="../index.html#approach">Pristup</a>
-      <a href="../index.html#who">S kim radimo</a>
-      <a href="../index.html#work">Kako radimo</a>
-      <a href="../blog-hr.html" style="color: var(--gold);">Uvidi</a>
-      <a href="../index.html#about">O meni</a>
+    <div class="nav-links">
+      <a href="../index.html#approach" class="nav-link">Pristup</a>
+      <a href="../index.html#who" class="nav-link">S kim radimo</a>
+      <a href="../index.html#work" class="nav-link">Kako radimo</a>
+      <a href="../blog-hr.html" class="nav-link" style="color: var(--gold);">Uvidi</a>
+      <a href="../index.html#about" class="nav-link">O meni</a>
     </div>
-    <div class="static-nav-actions">
-      <div class="static-lang-toggle" role="group" aria-label="Jezik">
-        <a href="family-business-succession-planning.html" onclick="localStorage.setItem('dp_lang','en')">EN</a>
+    <div class="nav-actions">
+      <div class="toggle-group" role="group" aria-label="Jezik">
+        <a href="family-business-succession-planning.html" class="" onclick="localStorage.setItem('dp_lang','en')">EN</a>
         <a href="family-business-succession-planning-hr.html" class="active" onclick="localStorage.setItem('dp_lang','hr')">HR</a>
       </div>
-      <button class="static-theme-toggle" onclick="(function(){var c=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',c);localStorage.setItem('dp_theme',c);document.getElementById('theme-icon').textContent=c==='dark'?'☾':'☼';})()" aria-label="Promjena teme">
-        <span id="theme-icon">☾</span>
+      <button class="theme-toggle" onclick="(function(){var c=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',c);localStorage.setItem('dp_theme',c);document.getElementById('theme-sun').style.display=c==='light'?'inline-block':'none';document.getElementById('theme-moon').style.display=c==='dark'?'inline-block':'none';})()" aria-label="Promjena teme">
+        <span id="theme-sun" style="display:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg></span>
+        <span id="theme-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
       </button>
-      <a class="btn btn-primary" href="../index.html#top" style="padding: 12px 22px; font-size: 12px;">Privatni razgovor</a>
+      <a class="btn btn-primary nav-cta" href="../index.html#top">Privatni razgovor</a>
     </div>
   </div>
 </nav>
@@ -296,10 +297,8 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById("theme-icon").textContent =
-    document.documentElement.getAttribute("data-theme") === "dark" ? "☾" : "☼";
-</script>
 
+
+<script>(function(){var c=document.documentElement.getAttribute('data-theme');var s=document.getElementById('theme-sun');var m=document.getElementById('theme-moon');if(s&&m){s.style.display=c==='light'?'inline-block':'none';m.style.display=c==='dark'?'inline-block':'none';}})();</script>
 </body>
 </html>
