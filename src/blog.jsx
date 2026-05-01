@@ -10,7 +10,9 @@ function BlogSection() {
   };
 
   const postUrl = (slug) => lang === "hr" ? `blog/${slug}-hr.html` : `blog/${slug}.html`;
-  const indexUrl = lang === "hr" ? "blog-hr.html" : "blog.html";
+  const indexUrl = lang === "hr"
+    ? "https://danijelpevecadvisory-v2.vercel.app/blog-hr.html"
+    : "https://danijelpevecadvisory-v2.vercel.app/blog.html";
 
   return (
     <section className="blog-section section-pad" id="blog">

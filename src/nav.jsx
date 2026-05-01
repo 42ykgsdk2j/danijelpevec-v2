@@ -58,11 +58,15 @@ function Nav({ theme, setTheme, openModal }) {
     return () => { document.body.style.overflow = ""; };
   }, [drawerOpen]);
 
+  const insightsUrl = useI18n().lang === "hr"
+    ? "https://danijelpevecadvisory-v2.vercel.app/blog-hr.html"
+    : "https://danijelpevecadvisory-v2.vercel.app/blog.html";
+
   const links = [
     { href: "#approach", label: t.nav.approach },
     { href: "#who", label: t.nav.who },
     { href: "#work", label: t.nav.work },
-    { href: "#blog", label: t.nav.blog },
+    { href: insightsUrl, label: t.nav.blog },
     { href: "#about", label: t.nav.about },
   ];
 
