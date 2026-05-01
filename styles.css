@@ -2013,6 +2013,89 @@ section { position: relative; }
   padding-top: 24px;
 }
 
+/* === Analyzing screen (between last question and results) === */
+
+.assessment-analyzing-wrap { min-height: 60vh; display: flex; align-items: center; }
+
+.assessment-analyzing-card {
+  text-align: center;
+  padding: clamp(48px, 6vw, 80px) clamp(32px, 5vw, 64px);
+  max-width: 640px;
+}
+
+.assessment-analyzing-message {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3;
+  color: var(--ink-0);
+  margin: 28px 0 36px;
+  min-height: 1.3em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  /* Re-mounts on key change → animation replays for crossfade effect */
+  animation: assessmentMsgIn 380ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes assessmentMsgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.assessment-analyzing-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.assessment-analyzing-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.3;
+  animation: assessmentDot 1200ms ease-in-out infinite;
+}
+.assessment-analyzing-dots span:nth-child(2) { animation-delay: 200ms; }
+.assessment-analyzing-dots span:nth-child(3) { animation-delay: 400ms; }
+@keyframes assessmentDot {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50%      { opacity: 1;   transform: translateY(-3px); }
+}
+
+.assessment-analyzing-bar {
+  height: 2px;
+  background: var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  max-width: 320px;
+}
+.assessment-analyzing-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--gold-shine);
+  animation-name: assessmentLoadFill;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+@keyframes assessmentLoadFill {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+.assessment-analyzing-counter {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assessment-analyzing-message { animation: none; }
+  .assessment-analyzing-dots span { animation: none; opacity: 0.6; }
+  .assessment-analyzing-bar-fill { animation: none; width: 100%; }
+}
+
 /* === Results screen === */
 
 .assessment-results-card { padding: clamp(36px, 5vw, 72px); }

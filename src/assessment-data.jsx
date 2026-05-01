@@ -508,6 +508,15 @@ const ASSESSMENT_UI = {
       next: "Next",
       complete: "See your results",
     },
+    analyzing: {
+      eyebrow: "Analyzing",
+      messages: [
+        "Reading your responses",
+        "Weighing each dimension",
+        "Identifying patterns",
+        "Composing your profile",
+      ],
+    },
     results: {
       eyebrow: "Your Profile",
       overallLabel: "Overall readiness",
@@ -539,6 +548,15 @@ const ASSESSMENT_UI = {
       back: "Natrag",
       next: "Dalje",
       complete: "Pogledaj rezultate",
+    },
+    analyzing: {
+      eyebrow: "Analiziram",
+      messages: [
+        "Čitam vaše odgovore",
+        "Vagam svaku dimenziju",
+        "Prepoznajem obrasce",
+        "Sastavljam vaš profil",
+      ],
     },
     results: {
       eyebrow: "Vaš profil",

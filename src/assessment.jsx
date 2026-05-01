@@ -7,7 +7,7 @@
 function AssessmentApp() {
   const [lang, setLang] = React.useState(() => localStorage.getItem("dp_lang") || "en");
   const [theme, setTheme] = React.useState(() => localStorage.getItem("dp_theme") || "dark");
-  const [step, setStep] = React.useState("intro"); // intro | questions | results
+  const [step, setStep] = React.useState("intro"); // intro | questions | analyzing | results
   const [currentQ, setCurrentQ] = React.useState(0);
   const [answers, setAnswers] = React.useState({});
 
@@ -38,10 +38,11 @@ function AssessmentApp() {
       if (currentQ < questions.length - 1) {
         setCurrentQ(currentQ + 1);
       } else {
-        setStep("results");
+        setStep("analyzing");
       }
     }, 280);
   };
+  const handleAnalyzingComplete = () => setStep("results");
   const handleBack = () => {
     if (currentQ > 0) setCurrentQ(currentQ - 1);
     else setStep("intro");
@@ -72,6 +73,9 @@ function AssessmentApp() {
             onBack={handleBack}
             isLast={currentQ === questions.length - 1}
           />
+        )}
+        {step === "analyzing" && (
+          <AssessmentAnalyzing ui={ui} onComplete={handleAnalyzingComplete} />
         )}
         {step === "results" && (
           <AssessmentResults
@@ -214,6 +218,47 @@ function AssessmentQuestion({ ui, dims, lang, q, qIndex, qTotal, currentAnswer, 
             <button className="btn-link" onClick={onBack}>
               ← {ui.question.back}
             </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== Analyzing screen (between last question and results) =====
+function AssessmentAnalyzing({ ui, onComplete }) {
+  const messages = ui.analyzing.messages;
+  const stepDuration = 600; // ms per message
+  const total = stepDuration * messages.length; // total visible time
+  const [msgIndex, setMsgIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setMsgIndex((i) => (i < messages.length - 1 ? i + 1 : i));
+    }, stepDuration);
+    const timer = setTimeout(onComplete, total + 200);
+    return () => { clearInterval(interval); clearTimeout(timer); };
+  }, []);
+
+  return (
+    <section className="assessment-section section-pad assessment-analyzing-wrap">
+      <div className="container">
+        <div className="assessment-card assessment-analyzing-card">
+          <div className="eyebrow">{ui.analyzing.eyebrow}</div>
+          <div className="assessment-analyzing-message" key={msgIndex}>
+            {messages[msgIndex]}
+            <span className="assessment-analyzing-dots">
+              <span></span><span></span><span></span>
+            </span>
+          </div>
+          <div className="assessment-analyzing-bar">
+            <div
+              className="assessment-analyzing-bar-fill"
+              style={{ animationDuration: total + "ms" }}
+            />
+          </div>
+          <div className="assessment-analyzing-counter">
+            {msgIndex + 1} / {messages.length}
           </div>
         </div>
       </div>
