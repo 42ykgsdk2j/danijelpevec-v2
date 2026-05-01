@@ -189,11 +189,18 @@ section { position: relative; }
   padding: 18px 30px;
   text-shadow: 0 1px 0 rgba(255, 240, 200, 0.35);
   box-shadow: 0 1px 0 rgba(255, 240, 200, 0.5) inset, 0 -1px 0 rgba(0,0,0,0.15) inset, 0 8px 24px rgba(201, 169, 97, 0.25);
+  text-decoration: none;
 }
 .btn-primary:hover {
   background: var(--gold-shine-hover);
   transform: translateY(-1px);
   box-shadow: 0 1px 0 rgba(255, 248, 220, 0.7) inset, 0 -1px 0 rgba(0,0,0,0.1) inset, 0 12px 32px rgba(240, 209, 134, 0.4);
+  color: #1a1408;
+}
+/* Visible keyboard focus ring — meets WCAG 2.4.7 (Focus Visible) */
+.btn:focus-visible {
+  outline: 2px solid var(--ink-0);
+  outline-offset: 3px;
 }
 
 .btn-ghost {
@@ -1633,12 +1640,15 @@ section { position: relative; }
 .article-body li { margin-bottom: 10px; }
 .article-body strong { color: var(--ink-0); font-weight: 500; }
 .article-body em { color: var(--ink-0); }
-.article-body a {
+/* Inline article links — scoped to exclude .btn so the gold CTA button keeps
+   its dark-on-gold text contrast (was being overridden by this selector,
+   making the button text invisible) */
+.article-body a:not(.btn) {
   color: var(--gold);
   border-bottom: 1px solid var(--line-strong);
   transition: color 220ms ease, border-color 220ms ease;
 }
-.article-body a:hover { color: var(--gold-bright); border-color: var(--gold); }
+.article-body a:not(.btn):hover { color: var(--gold-bright); border-color: var(--gold); }
 .article-body blockquote {
   margin: 36px 0;
   padding: 4px 0 4px 28px;
