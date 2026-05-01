@@ -140,7 +140,29 @@ function WorkSection({ openModal }) {
   );
 }
 
+function AssessmentCtaSection() {
+  const { t } = useI18n();
+  return (
+    <section className="assessment-cta-section section-pad">
+      <div className="container">
+        <div className="assessment-cta-box reveal">
+          <div className="eyebrow">{t.assessmentCta.eyebrow}</div>
+          <h2>
+            {t.assessmentCta.title} <span className="accent italic">{t.assessmentCta.titleAccent}</span>
+          </h2>
+          <p className="lead">{t.assessmentCta.lead}</p>
+          <a className="btn btn-primary" href="assessment.html">
+            {t.assessmentCta.btn} <Icon.Arrow />
+          </a>
+          <p className="assessment-cta-note">{t.assessmentCta.note}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 window.WhoSection = WhoSection;
 window.ChallengesSection = ChallengesSection;
 window.ApproachSection = ApproachSection;
 window.WorkSection = WorkSection;
+window.AssessmentCtaSection = AssessmentCtaSection;

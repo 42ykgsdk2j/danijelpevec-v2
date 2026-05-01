@@ -135,6 +135,14 @@ const TRANSLATIONS = {
       ctaSub: "If anything here speaks to your situation, the next step is a private conversation.",
       ctaBtn: "Request a private conversation",
     },
+    assessmentCta: {
+      eyebrow: "A first step",
+      title: "A seven-minute",
+      titleAccent: "private reflection.",
+      lead: "Six research-backed dimensions. Instant, balanced results. No registration — your answers stay in your browser.",
+      btn: "Take the readiness assessment",
+      note: "Designed as a structured starting point — not a substitute for a conversation.",
+    },
     final: {
       eyebrow: "The first step",
       titleA: "If you are thinking about",
@@ -325,6 +333,14 @@ const TRANSLATIONS = {
       ctaTitle: "Ovi razgovori ne događaju se na stranici.",
       ctaSub: "Ako vam nešto ovdje odgovara situaciji, sljedeći je korak privatni razgovor.",
       ctaBtn: "Zatraži privatni razgovor",
+    },
+    assessmentCta: {
+      eyebrow: "Polazna točka",
+      title: "Sedmominutna",
+      titleAccent: "privatna refleksija.",
+      lead: "Šest dimenzija temeljenih na istraživanju. Trenutni, uravnoteženi rezultati. Bez registracije — vaši odgovori ostaju u vašem pregledniku.",
+      btn: "Provedi procjenu spremnosti",
+      note: "Osmišljeno kao strukturirana polazna točka — ne kao zamjena za razgovor.",
     },
     final: {
       eyebrow: "Prvi korak",

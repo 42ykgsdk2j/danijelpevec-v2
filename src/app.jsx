@@ -44,6 +44,7 @@ function App() {
         <Hero openModal={openModal} />
         <WhoSection />
         <ChallengesSection />
+        <AssessmentCtaSection />
         <ApproachSection />
         <WorkSection openModal={openModal} />
         <BlogSection />

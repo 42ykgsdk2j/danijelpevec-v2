@@ -1806,6 +1806,56 @@ section { position: relative; }
    The .scrolled class is applied permanently on blog pages so the nav has its solid backdrop from the start. */
 
 /* ============================================
+   Assessment CTA on home page (between Challenges and Approach)
+   ============================================ */
+
+.assessment-cta-section {
+  padding-top: clamp(60px, 8vw, 120px);
+  padding-bottom: clamp(60px, 8vw, 120px);
+}
+.assessment-cta-box {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(40px, 5vw, 64px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.assessment-cta-box::before {
+  /* Subtle gold corner glow — matches the page's gold accent without
+     overpowering the content */
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--gold-soft) 0%, transparent 65%);
+  pointer-events: none;
+}
+.assessment-cta-box > * { position: relative; z-index: 1; }
+.assessment-cta-box .eyebrow { justify-content: center; margin-bottom: 20px; }
+.assessment-cta-box h2 {
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.1;
+  margin: 16px 0 24px;
+  text-wrap: balance;
+}
+.assessment-cta-box .lead {
+  max-width: 56ch;
+  margin: 0 auto 36px;
+}
+.assessment-cta-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+/* ============================================
    Assessment page (assessment.html)
    ============================================ */
 
