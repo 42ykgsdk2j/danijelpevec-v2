@@ -269,10 +269,14 @@ section { position: relative; }
   align-items: center;
   gap: 14px;
   cursor: pointer;
+  /* Reserve space for the wider Croatian brand-tag so the brand block
+     occupies the same width regardless of language */
+  min-width: 280px;
 }
 .brand-mono {
   width: 42px;
   height: 42px;
+  flex-shrink: 0;
   border: 1px solid var(--gold);
   display: grid;
   place-items: center;
@@ -292,12 +296,23 @@ section { position: relative; }
   pointer-events: none;
 }
 .brand:hover .brand-mono { background: var(--gold-soft); }
+/* Brand text column — fixed width and height so the brand block has the
+   same footprint in EN ("Family Business Advisor") and HR ("Savjetnik za
+   obiteljske tvrtke"). The HR tag wraps to two lines within this width. */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220px;
+  min-height: 42px;
+}
 .brand-name {
   font-family: var(--serif);
   font-size: 17px;
   color: var(--ink-0);
   letter-spacing: 0.01em;
   line-height: 1.1;
+  white-space: nowrap;
 }
 .brand-tag {
   font-family: var(--sans);
@@ -305,14 +320,19 @@ section { position: relative; }
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--ink-2);
+  line-height: 1.4;
+  margin-top: 4px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
   flex-wrap: nowrap;
 }
+/* Each link reserves min-width matching the longer of its EN/HR label so
+   switching languages doesn't shift adjacent items. The inner span carries
+   the underline so it tracks the text width, not the reserved width. */
 .nav-link {
   font-size: 13px;
   font-weight: 400;
@@ -322,11 +342,25 @@ section { position: relative; }
   padding: 6px 0;
   transition: color 240ms ease;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.nav-link::after {
+.nav-links > .nav-link:nth-child(1) { min-width: 80px; }   /* Approach / Pristup */
+.nav-links > .nav-link:nth-child(2) { min-width: 145px; }  /* Who we work with / S kim radimo */
+.nav-links > .nav-link:nth-child(3) { min-width: 100px; }  /* How we work / Kako radimo */
+.nav-links > .nav-link:nth-child(4) { min-width: 75px; }   /* Insights / Uvidi */
+.nav-links > .nav-link:nth-child(5) { min-width: 70px; }   /* About / O meni */
+
+.nav-link > span {
+  position: relative;
+  display: inline-block;
+}
+.nav-link > span::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 0;
+  bottom: -6px; left: 0;
   width: 100%;
   height: 1px;
   background: var(--gold);
@@ -334,8 +368,21 @@ section { position: relative; }
   transform-origin: right;
   transition: transform 320ms ease;
 }
+/* Fallback: if a nav-link has no inner span, draw underline on the link itself */
+.nav-link:not(:has(> span))::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: max(60%, 50px);
+  height: 1px;
+  background: var(--gold);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: right;
+  transition: transform 320ms ease;
+}
 .nav-link:hover { color: var(--ink-0); }
-.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-link:hover > span::after { transform: scaleX(1); transform-origin: left; }
+.nav-link:not(:has(> span)):hover::after { transform: translateX(-50%) scaleX(1); transform-origin: left; }
 
 .nav-actions {
   display: flex;
@@ -393,6 +440,13 @@ section { position: relative; }
 .nav-cta {
   padding: 10px 20px;
   font-size: 12px;
+  /* Reserve width for the longer language ("Private conversation" vs
+     "Privatni razgovor") so the button keeps the same footprint */
+  min-width: 220px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .menu-btn {

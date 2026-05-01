@@ -10,7 +10,7 @@ function Brand() {
   return (
     <a href="#top" className="brand" aria-label="Danijel Pevec">
       <Monogram />
-      <div>
+      <div className="brand-text">
         <div className="brand-name">Danijel Pevec</div>
         <div className="brand-tag">{t.brand.tag}</div>
       </div>
@@ -89,7 +89,7 @@ function Nav({ theme, setTheme, openModal }) {
           <div className="nav-links">
             {links.map(l => (
               <a key={l.href} href={l.href} className="nav-link" onClick={(e) => handleNav(e, l.href)}>
-                {l.label}
+                <span>{l.label}</span>
               </a>
             ))}
           </div>
@@ -118,7 +118,7 @@ function Nav({ theme, setTheme, openModal }) {
         </button>
         {links.map(l => (
           <a key={l.href} href={l.href} className="nav-link" onClick={(e) => handleNav(e, l.href)}>
-            {l.label}
+            <span>{l.label}</span>
           </a>
         ))}
         <div className="mobile-drawer-bottom">
