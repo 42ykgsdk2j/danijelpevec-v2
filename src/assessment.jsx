@@ -10,6 +10,9 @@ function AssessmentApp() {
   const [step, setStep] = React.useState("intro"); // intro | questions | analyzing | results
   const [currentQ, setCurrentQ] = React.useState(0);
   const [answers, setAnswers] = React.useState({});
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   React.useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -55,7 +58,7 @@ function AssessmentApp() {
 
   return (
     <I18nContext.Provider value={{ t: TRANSLATIONS[lang], lang, setLang }}>
-      <AssessmentNav theme={theme} setTheme={setTheme} lang={lang} setLang={setLang} />
+      <AssessmentNav theme={theme} setTheme={setTheme} lang={lang} setLang={setLang} openModal={openModal} />
       <main>
         {step === "intro" && (
           <AssessmentIntro ui={ui} dims={dims} lang={lang} onBegin={handleBegin} />
@@ -84,16 +87,18 @@ function AssessmentApp() {
             lang={lang}
             answers={answers}
             onRestart={handleRestart}
+            openModal={openModal}
           />
         )}
       </main>
       <AssessmentFooter lang={lang} />
+      <ContactModal open={modalOpen} onClose={closeModal} />
     </I18nContext.Provider>
   );
 }
 
 // ===== Static-style nav for the assessment page =====
-function AssessmentNav({ theme, setTheme, lang, setLang }) {
+function AssessmentNav({ theme, setTheme, lang, setLang, openModal }) {
   const ui = ASSESSMENT_UI[lang];
   const t = TRANSLATIONS[lang];
   const navTag = lang === "hr" ? "Savjetnik za obiteljske tvrtke" : "Family Business Advisor";
@@ -128,7 +133,7 @@ function AssessmentNav({ theme, setTheme, lang, setLang }) {
           >
             {theme === "dark" ? <Icon.Sun /> : <Icon.Moon />}
           </button>
-          <a className="btn btn-primary nav-cta" href="index.html#top">{t.nav.cta}</a>
+          <button className="btn btn-primary nav-cta" onClick={openModal}>{t.nav.cta}</button>
         </div>
       </div>
     </nav>
@@ -267,7 +272,7 @@ function AssessmentAnalyzing({ ui, onComplete }) {
 }
 
 // ===== Results screen =====
-function AssessmentResults({ ui, dims, lang, answers, onRestart }) {
+function AssessmentResults({ ui, dims, lang, answers, onRestart, openModal }) {
   const r = calculateAssessmentResults(answers);
   const profile = ASSESSMENT_PROFILES[r.profile][lang];
 
@@ -348,9 +353,9 @@ function AssessmentResults({ ui, dims, lang, answers, onRestart }) {
           <div className="assessment-final-cta">
             <h3>{ui.results.ctaTitle}</h3>
             <p>{ui.results.ctaSub}</p>
-            <a className="btn btn-primary" href="index.html#top">
+            <button className="btn btn-primary" onClick={openModal}>
               {ui.results.ctaBtn} <Icon.Arrow />
-            </a>
+            </button>
             <button className="btn-link assessment-restart" onClick={onRestart}>
               ↻ {ui.results.restart}
             </button>
