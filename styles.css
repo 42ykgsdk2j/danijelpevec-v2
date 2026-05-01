@@ -322,6 +322,10 @@ section { position: relative; }
   color: var(--ink-2);
   line-height: 1.4;
   margin-top: 4px;
+  /* Force single line so EN ("FAMILY BUSINESS ADVISOR") and HR ("OBITELJSKI
+     SAVJETNIK") render at the same height — no vertical layout shift on
+     language switch. The brand-text width is sized to fit both. */
+  white-space: nowrap;
 }
 
 .nav-links {

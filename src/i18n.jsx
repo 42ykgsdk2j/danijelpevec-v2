@@ -200,7 +200,7 @@ const TRANSLATIONS = {
       cta: "Privatni razgovor",
     },
     brand: {
-      tag: "Savjetnik za obiteljske tvrtke",
+      tag: "Obiteljski savjetnik",
     },
     hero: {
       meta1: "Savjetnička praksa",
